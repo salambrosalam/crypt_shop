@@ -1,0 +1,76 @@
+.homePage{
+    background: #282c34;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: black solid 2px;
+    height: 15vh;
+    font-size: 15px ;
+    font-family: "Lucida Console", Courier, monospace;
+    color: white;
+}
+.profile_sizer {
+    height: 9vh;
+}
+.font_changer{
+    font-family: "Lucida Console", Courier, monospace;
+    color: white;
+}
+.homePage div{
+    padding: 25px;
+}
+.main{
+    background-color: black;
+    padding-top: 20px;
+    padding-bottom: 85px;
+}
+.font_changer_main{
+    font-family: "Lucida Console", Courier, monospace;
+    color: white;
+    font-size: 30px;
+}
+.block_with_info{
+    background-color: #282c34;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    justify-content: center;
+}
+.image_sizer{
+    width: 250px;
+    height: 250px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+}
+.image_sizer:hover{
+    transform: scale(1.1);
+}
+.column_of_images{
+    display: flex;
+    justify-content: center;
+}
+.contacts{
+    background: #282c34;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: black solid 2px;
+    height: 15vh;
+    font-size: 15px ;
+    font-family: "Lucida Console", Courier, monospace;
+    color: white;
+}
+.under_images{
+    background-color: #282c34;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
