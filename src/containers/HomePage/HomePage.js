@@ -15,22 +15,7 @@ class HomePage extends Component{
 
         return(
             <div>
-                <header className={header_style.homePage}>
-                    <div >
-                        <img className={header_style.profile_sizer} src={menu_logo} alt=""/>
-                    </div>
-                    <div>
-                        <span >
-                            <a href="/">
-                                <img className={header_style.profile_sizer} src={profile_1} alt=""/>
-                            </a>
-                        </span>
-                    </div>
-                    <div>
-                        <img className={header_style.profile_sizer} src={anonymous} alt=""/>
-                    </div>
-
-                </header>
+                
                 <main className={header_style.main}>
                     <div className={header_style.block_with_info}>
                         <span className={header_style.font_changer_main}>

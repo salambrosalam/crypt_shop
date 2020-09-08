@@ -18,7 +18,7 @@
     color: white;
 }
 .homePage div{
-    padding: 25px;
+    /*padding: 25px;*/
 }
 .main{
     background-color: black;
@@ -72,5 +72,8 @@
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+}
+.empty{
+
 }
 

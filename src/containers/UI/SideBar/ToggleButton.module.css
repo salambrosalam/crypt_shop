@@ -1,0 +1,12 @@
+.toggleButton{
+    display: inline-block;
+    cursor: pointer;
+    padding-left: 10px;
+}
+.toggleButton_line{
+    width: 35px;
+    height: 5px;
+    background: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
