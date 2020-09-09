@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import {BrowserRouter, Route, Switch, Router} from "react-router-dom"
+import {BrowserRouter, Route, Switch} from "react-router-dom"
 import HomePage from "./containers/HomePage/HomePage";
 import './App.css';
 import header_style from "./containers/HomePage/HomePage.module.css";
@@ -11,7 +10,6 @@ import Profile from "./containers/Profile/Profile"
 import SideBar from "./containers/UI/SideBar/SideBar"
 import DrawerToggleButton from "./containers/UI/SideBar/DrawerToggleButton";
 import BackDrop from "./containers/BackDrop/BackDrop";
-import MenuToggle from "./containers/UI/MenuToggle/MenuToggle";
 
 class App extends Component{
 
@@ -28,12 +26,10 @@ class App extends Component{
   render(){
     return(
         <BrowserRouter>
-
+            <SideBar />
             <header className={header_style.homePage}>
                 <div>
-                    <MenuToggle
-                        onToggle={this.toggleMenuHandler}
-                        isOpen={this.state.menu}/>
+                    <DrawerToggleButton/>
                 </div>
                 <div>
                     <a href="/">
@@ -46,9 +42,7 @@ class App extends Component{
                     </a>
                 </div>
             </header>
-            <SideBar/>
             <BackDrop/>
-
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/profile" component={Profile}/>
