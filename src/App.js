@@ -31,9 +31,7 @@ class App extends Component{
 
             <header className={header_style.homePage}>
                 <div>
-                    <MenuToggle
-                        onToggle={this.toggleMenuHandler}
-                        isOpen={this.state.menu}/>
+                    <DrawerToggleButton/>
                 </div>
                 <div>
                     <a href="/">
