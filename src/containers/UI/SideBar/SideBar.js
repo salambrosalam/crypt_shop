@@ -3,14 +3,14 @@ import {withStyles} from "@material-ui/core";
 
 const style = theme => ({
     SideDrawer: {
-        display: 'none',
+        display: 'block',
         background: "white",
         boxShadow: "2px 0 5px rgba(0,0,0,0.5)",
         position: 'fixed',
         height: '100%',
         top: 0,
         left: 0,
-        zIndex: '1',
+        zIndex: '200',
     },
     SideDrawerLi: {
         margin: '20px',
@@ -20,7 +20,8 @@ const style = theme => ({
 const SideBar = props => {
     const {classes} = props;
     return (
-        <nav className={classes.SideDrawer}>
+        <nav className={classes.SideDrawer}
+             onClick={props.menu}>
             <ul style={{listStyle: 'none', padding: '50px'}}>
                 <li className={classes.SideDrawerLi}><a href="/profile">Account</a></li>
                 <li className={classes.SideDrawerLi}><a href="/settings">Settings</a></li>

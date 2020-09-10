@@ -10,6 +10,11 @@ import Profile from "./containers/Profile/Profile"
 import SideBar from "./containers/UI/SideBar/SideBar"
 import DrawerToggleButton from "./containers/UI/SideBar/DrawerToggleButton";
 import BackDrop from "./containers/BackDrop/BackDrop";
+import {createStore} from "redux";
+import MenuToggleReducer from "./containers/store/reducers/MenuToggleReducer";
+
+const store = createStore(MenuToggleReducer)
+
 
 class App extends Component{
 
@@ -21,15 +26,22 @@ class App extends Component{
         this.setState({
             menu: !this.state.menu
         })
+        console.log(this.state.menu)
     }
+
 
   render(){
     return(
+
         <BrowserRouter>
-            <SideBar />
+            {this.props.menu ? <SideBar/> +
+            <BackDrop/>
+            : null }
             <header className={header_style.homePage}>
                 <div>
-                    <DrawerToggleButton/>
+                    <DrawerToggleButton
+                        onToggle={() => this.toggleMenuHandler}
+                        />
                 </div>
                 <div>
                     <a href="/">
@@ -42,7 +54,7 @@ class App extends Component{
                     </a>
                 </div>
             </header>
-            <BackDrop/>
+
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/profile" component={Profile}/>
@@ -51,5 +63,16 @@ class App extends Component{
     );
   }
 }
+
+function mapStateToProps(state) {
+    return {
+        menu: state.menu
+    };
+}
+function mapDispatchToProps(dispatch){
+    return{
+    }
+}
+
 
 export default App;

@@ -1,9 +1,23 @@
 import React from "react"
+import {withStyles} from "@material-ui/core";
 
-import BackDropStyle from "./BackDrop.css"
-
-const BackDrop = props => (
-    <div className={BackDropStyle.BackDrop}/>
+const style = theme => ({
+     BackDrop: {
+         position: "fixed",
+         height: "100%",
+         background: "rgba(0,0,0,0.3)",
+         zIndex: "100",
+         width: "100%"
+     }
+    }
 )
 
-export default BackDrop
+
+const BackDrop = props => {
+    const {classes} = props;
+    return (
+    <div className={classes.BackDrop}/>
+    )
+}
+
+export default withStyles(style)(BackDrop);
