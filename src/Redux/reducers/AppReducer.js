@@ -4,11 +4,11 @@ const initialState = {
     menu: false
 }
 
-export default function menuToggleReducer(state = initialState, action){
-    switch (action.type){
+export default function AppReducer(state = initialState, action) {
+    switch (action.type) {
         case TOGGLE_MENU:
-            return{
-                ...state, menuToggle: action.payload
+            return {
+                ...state, menu: !state.menu
             }
         default:
             return state

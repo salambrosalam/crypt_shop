@@ -1,21 +1,14 @@
 import React, {Component} from "react"
-import gif_logo from "./main_gif.gif"
 import header_style from "./HomePage.module.css"
-import profile_1 from "./profile_1.png"
-import menu_logo from "./menu_logo.png"
-import anonymous from "./create_account_2_anonymous.png"
-import manifier from "./manifier.png"
-import success from "./success.jpg"
+import profile_1 from "../../Assets/HomePage/profile_1.png"
+import anonymous from "../../Assets/HomePage/create_account_2_anonymous.png"
+import manifier from "../../Assets/HomePage/manifier.png"
+import success from "../../Assets/HomePage/success.jpg"
 
 class HomePage extends Component{
-
-
-
     render() {
-
         return(
             <div>
-                
                 <main className={header_style.main}>
                     <div className={header_style.block_with_info}>
                         <span className={header_style.font_changer_main}>

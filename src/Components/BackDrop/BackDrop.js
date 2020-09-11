@@ -1,5 +1,6 @@
 import React from "react"
 import {withStyles} from "@material-ui/core";
+import SideBar from "../UI/SideBar/SideBar"
 
 const style = theme => ({
      BackDrop: {
@@ -16,7 +17,9 @@ const style = theme => ({
 const BackDrop = props => {
     const {classes} = props;
     return (
-    <div className={classes.BackDrop}/>
+    <div className={classes.BackDrop}>
+        <SideBar menuToggle={props.menuToggle}/>
+    </div>
     )
 }
 

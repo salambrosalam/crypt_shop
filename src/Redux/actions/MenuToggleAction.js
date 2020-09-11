@@ -1,8 +1,7 @@
 import {TOGGLE_MENU} from "./actionTypes";
 
-export function toggleMenu(){
+export default function menuToggle(){
     return{
         type: TOGGLE_MENU,
-        payload: !this.state.menu
     }
 }
