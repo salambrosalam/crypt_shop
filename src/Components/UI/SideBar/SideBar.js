@@ -5,15 +5,18 @@ import Typography from "@material-ui/core/Typography";
 const style = theme => ({
     SideDrawer: {
         display: 'block',
-        background: "white",
+        background: "#282c34",
         boxShadow: "2px 0 5px rgba(0,0,0,0.5)",
         position: 'fixed',
         height: '100%',
         top: 0,
         left: 0,
+        transition:"0.5s",
         zIndex: '200',
     },
     SideDrawerLi: {
+        fontSize: "25px" ,
+        fontFamily: "Lucida Console",
         margin: '20px',
     }
 })
