@@ -9,38 +9,25 @@ import Profile from "./Components/Profile/Profile"
 import DrawerToggleButton from "./Components/UI/SideBar/DrawerToggleButton";
 import BackDrop from "./Components/BackDrop/BackDrop";
 import {connect} from "react-redux";
-import menuToggle from './Redux/actions/MenuToggleAction'
+import {menuToggleActionCreator} from "./Redux/reducers/AppReducer";
+import Login from "./Components/Login/Login";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 
 
 class App extends Component {
     render() {
-        debugger;
         return (
             <BrowserRouter>
-                {this.props.menu ? <BackDrop menuToggle={this.props.menuToggle}/>
+                {this.props.menu ? <BackDrop menuToggle={this.props.toggleMenu}/>
                     : ''}
-                <header className={header_style.homePage}>
-                    <div>
-                        <button onClick={this.props.menuToggle}>
-                            <DrawerToggleButton/>
-                        </button>
-                    </div>
-                    <div>
-                        <NavLink to="/">
-                            <img className={header_style.profile_sizer} src={profile_1} alt=""/>
-                        </NavLink>
-                    </div>
-                    <div>
-                        <NavLink to="/profile">
-                            <img className={header_style.profile_sizer} src={anonymous} alt=""/>
-                        </NavLink>
-                    </div>
-                </header>
-
+                    <Header toggleMenu={this.props.toggleMenu}/>
                 <Switch>
                     <Route exact path="/" component={HomePage}/>
                     <Route exact path="/profile" component={Profile}/>
+                    <Route path="/login" render={() => <Login/>}/>
                 </Switch>
+                <Footer/>
             </BrowserRouter>
         );
     }
@@ -52,4 +39,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {menuToggle})(App);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        toggleMenu: () => dispatch(menuToggleActionCreator())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

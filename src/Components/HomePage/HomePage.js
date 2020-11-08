@@ -44,17 +44,6 @@ class HomePage extends Component{
                         </span>
                     </div>
                 </main>
-                <footer className={header_style.homePage}>
-                    <div >
-                        <img style={{width:"50px", height:"50px"}} src={profile_1} alt=""/>
-                    </div>
-                    <div >
-                        <span>Copyright © 2020 crypt_shop, Inc.</span>
-                    </div>
-                    <div >
-                        <span>support:crypt_shop@anonymous.com</span>
-                    </div>
-                </footer>
             </div>
         )
     }

@@ -9,6 +9,32 @@
     font-size: 15px ;
     font-family: "Lucida Console", Courier, monospace;
     color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    /*position: fixed;*/
+}
+.footerPage{
+    background: #282c34;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: black solid 2px;
+    height: 15vh;
+    font-size: 15px ;
+    font-family: "Lucida Console", Courier, monospace;
+    color: white;
+    /*position: fixed;*/
+}
+.footer{
+    position: fixed;
+    margin-bottom: 0;
+    bottom: 0;
+    width: 100%;
+    /*padding: 20px;*/
+}
+.wrapperFooter{
+    padding: 10px;
 }
 .profile_sizer {
     height: 9vh;

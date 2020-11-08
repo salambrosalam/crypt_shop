@@ -1,4 +1,4 @@
-import {TOGGLE_MENU} from "../actions/actionTypes";
+export const TOGGLE_MENU = "TOGGLE_MENU";
 
 const initialState = {
     menu: false
@@ -12,5 +12,11 @@ export default function AppReducer(state = initialState, action) {
             }
         default:
             return state
+    }
+}
+
+export const menuToggleActionCreator = () => {
+    return{
+        type: TOGGLE_MENU,
     }
 }
