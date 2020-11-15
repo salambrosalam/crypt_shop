@@ -1,0 +1,13 @@
+.currencyStyle{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+.wrapper{
+    margin-left: 15px;
+}
+.mainLink{
+    position: absolute;
+    left: 47%;
+    right: 50%;
+}
