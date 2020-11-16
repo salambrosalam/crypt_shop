@@ -13,10 +13,7 @@ const BitcoinBoxContainer = (props) => {
     }, []);
 
     return stateBitcoin && (
-      <BitcoinBox bitcoinUSD={stateBitcoin.bpi.USD.rate}
-        bitcoinEUR={stateBitcoin.bpi.EUR.rate}
-        bitcoinGBP={stateBitcoin.bpi.USD.rate}
-      />
+      <h1>SUka</h1>
     )
 }
 
