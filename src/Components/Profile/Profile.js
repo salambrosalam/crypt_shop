@@ -1,11 +1,14 @@
-import React, {Component} from "react";
+import React from "react";
+import {Redirect} from "react-router-dom";
 
-export default class Profile extends Component{
-    render() {
-        return(
+const Profile = (props) => {
+    if(props.isAuthenticated === true) {
+        return (
             <div>
                 <span>This is profile page</span>
             </div>
         )
     }
+    return <Redirect to="/login"/>
 }
+export default Profile;

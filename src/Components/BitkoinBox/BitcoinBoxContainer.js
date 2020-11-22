@@ -9,13 +9,13 @@ const BitcoinBoxContainer = (props) => {
 
     useEffect(() => {
       const timer = setInterval(() => dispatch(getBitcoinPriceTC()), 3000);
-      return () => clearInterval(timer); 
+      return () => clearInterval(timer);
     }, []);
 
     return stateBitcoin && (
       <BitcoinBox bitcoinUSD={stateBitcoin.bpi.USD.rate}
         bitcoinEUR={stateBitcoin.bpi.EUR.rate}
-        bitcoinGBP={stateBitcoin.bpi.USD.rate}
+        bitcoinGBP={stateBitcoin.bpi.GBP.rate}
       />
     )
 }

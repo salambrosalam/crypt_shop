@@ -1,18 +1,31 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
-import classes from "./Login.module.css";
+import classes from "./Register.module.css";
 import bg_login from "../../Assets/HomePage/bg_login.png";
-import {NavLink} from "react-router-dom";
 import {useHttp} from "../../hooks/http.hook";
+import Toast from "../Toasts/Toast";
+import toastClasses from "../Toasts/Toast.module.css";
 
 const Login = (props) => {
 
-    const {isFetching,error,request} = useHttp();
+    const {isFetching,error,request,clearError} = useHttp();
 
     const [form, setForm] = useState({
         email: "",
         password: ""
     });
+
+    const [toastclass, setToastClass] = useState(toastClasses.snackbar);
+    const [toastMessage, setToastMessage] = useState("");
+
+    useEffect(() => {
+        console.log("Error: ",error)
+        if(error) {
+            setToastMessage(error);
+            showFailToast();
+        }
+        clearError();
+    }, [error,clearError])
 
     const changeHandler = event => {
         setForm({
@@ -21,15 +34,25 @@ const Login = (props) => {
         })
     }
 
-    const loginHandler = async() => {
+    const registerHandler = async() => {
         try{
-            const data = await request("/api/auth/login", "POST", {...form})
+            const data = await request("/api/auth/register", "POST", {...form})
             console.log("Data",data);
+            setToastMessage(data.message);
+            showSuccessToast();
         }catch(e){
 
         }
     }
 
+    const showFailToast = () => {
+        setToastClass(toastClasses.showFail)
+        setTimeout( () => setToastClass(toastClasses.snackbar),3000);
+    }
+    const showSuccessToast = () => {
+        setToastClass(toastClasses.showSuccess)
+        setTimeout( () => setToastClass(toastClasses.snackbar),3000);
+    }
 
     return (
         <div className={classes.loginBox} style={{backgroundImage: `url(${bg_login})`}}>
@@ -42,7 +65,7 @@ const Login = (props) => {
                 <div className={classes.formContainer}>
                     <form>
                         <div>
-                            <div className={classes.text}>Log in</div>
+                            <div className={classes.text}>Registration</div>
                         </div>
                         <div>
                             <input className={classes.inputLine}
@@ -59,14 +82,12 @@ const Login = (props) => {
                         <div>
                             <button
                                 className={classes.buttonLogin}
-                                onClick={loginHandler}
+                                onClick={registerHandler}
                                 disabled={isFetching}
-                            >Sign In</button>
+                            >
+                                Create Account</button>
                         </div>
-                        <div className={classes.text2}>No account yet?</div>
-                        <NavLink to={"/register"}>
-                            <div className={classes.text3}>Sign Up</div>
-                        </NavLink>
+                        <Toast toastClass={toastclass} toastMessage={toastMessage}/>
                     </form>
                 </div>
             </div>

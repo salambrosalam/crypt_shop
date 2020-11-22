@@ -18,6 +18,9 @@ const style = theme => ({
         fontSize: "25px" ,
         fontFamily: "Lucida Console",
         margin: '20px',
+    },
+    Closer: {
+        cursor: "pointer"
     }
 })
 
@@ -27,7 +30,7 @@ const SideBar = props => {
         <div>
             <nav className={classes.SideDrawer}>
                 <Typography align={'right'}>
-                    <button onClick={props.menuToggle}>X</button>
+                    <button className={classes.Closer} onClick={props.menuToggle}>X</button>
                 </Typography>
                 <ul style={{listStyle: 'none', padding: '50px'}}>
                     <li className={classes.SideDrawerLi}><a href="/profile">Account</a></li>

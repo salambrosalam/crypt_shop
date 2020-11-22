@@ -4,7 +4,8 @@ const initialState = {
     password: null,
     id: null,
     error: null,
-    isFetching: false
+    isFetching: false,
+    isAuthenticated: false
 }
 
 const authReducer = (state = initialState, action) => {
