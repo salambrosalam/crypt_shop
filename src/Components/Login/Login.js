@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {connect} from "react-redux";
 import classes from "./Login.module.css";
 import bg_login from "../../Assets/HomePage/bg_login.png";
 import {NavLink} from "react-router-dom";
 import {useHttp} from "../../hooks/http.hook";
+import {AuthContext} from "../../context/AuthContext";
 
 const Login = (props) => {
+    const auth = useContext(AuthContext);
 
     const {isFetching,error,request} = useHttp();
 
@@ -25,6 +27,7 @@ const Login = (props) => {
         try{
             const data = await request("/api/auth/login", "POST", {...form})
             console.log("Data",data);
+            auth.login(data.token, data.userId);
         }catch(e){
 
         }

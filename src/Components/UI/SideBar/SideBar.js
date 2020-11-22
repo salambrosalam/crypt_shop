@@ -1,6 +1,7 @@
 import React from "react";
 import {withStyles} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
+import {NavLink} from "react-router-dom";
 
 const style = theme => ({
     SideDrawer: {
@@ -33,9 +34,9 @@ const SideBar = props => {
                     <button className={classes.Closer} onClick={props.menuToggle}>X</button>
                 </Typography>
                 <ul style={{listStyle: 'none', padding: '50px'}}>
-                    <li className={classes.SideDrawerLi}><a href="/profile">Account</a></li>
-                    <li className={classes.SideDrawerLi}><a href="/settings">Settings</a></li>
-                    <li className={classes.SideDrawerLi}><a href="/support">Support</a></li>
+                    <li className={classes.SideDrawerLi}><NavLink onClick={props.menuToggle} to="/profile">Account</NavLink></li>
+                    <li className={classes.SideDrawerLi}><NavLink onClick={props.menuToggle} to="/settings">Settings</NavLink></li>
+                    <li className={classes.SideDrawerLi}><NavLink onClick={props.menuToggle} to="/support">Support</NavLink></li>
                 </ul>
             </nav>
         </div>

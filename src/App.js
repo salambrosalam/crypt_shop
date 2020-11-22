@@ -12,24 +12,25 @@ import Footer from "./Components/Footer/Footer";
 import Register from "./Components/Register/Register";
 import {useAuth} from "./hooks/auth.hook";
 import {AuthContext} from "./context/AuthContext";
+import {useRoutes} from "./Routes/routes";
 
-class App extends Component {
-    render() {
+const App = (props) => {
+    const {token,login,logout,userId} = useAuth();
+    const isAuthenticated = !!token;
+    const routes = useRoutes(isAuthenticated)
         return (
-                <BrowserRouter>
-                    {this.props.menu ? <BackDrop menuToggle={this.props.toggleMenu}/>
-                        : ''}
-                        <Header toggleMenu={this.props.toggleMenu}/>
-                    <Switch>
-                        <Route exact path="/" component={HomePage}/>
-                        <Route exact path="/profile" component={Profile}/>
-                        <Route path="/login" render={() => <Login/>}/>
-                        <Route path="/register" render={() => <Register/>}/>
-                    </Switch>
-                    <Footer/>
-                </BrowserRouter>
+                <AuthContext.Provider value={{
+                    token, login,logout,userId,isAuthenticated
+                }}>
+                    <BrowserRouter>
+                        {props.menu ? <BackDrop menuToggle={props.toggleMenu}/>
+                            : ''}
+                            <Header toggleMenu={props.toggleMenu}/>
+                        {routes}
+                        <Footer/>
+                    </BrowserRouter>
+                </AuthContext.Provider>
         );
-    }
 }
 
 const mapStateToProps = (state) => {

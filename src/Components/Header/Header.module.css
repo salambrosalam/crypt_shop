@@ -11,3 +11,16 @@
     left: 47%;
     right: 50%;
 }
+.buttonLogin{
+    color:black;
+    font-size: 20px;
+    font-family: Consolas;
+    background: darkgray;
+    width: 210px;
+    border: 2px solid black;
+}
+.buttonLogin:hover{
+    color: white;
+    border: 2px solid white;
+    cursor: pointer;
+}
